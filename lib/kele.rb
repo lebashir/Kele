@@ -37,4 +37,7 @@ class Kele
     respose = self.class.get('/messages', body: { sender: sender, recipient_id: recipient_id, subject: subject, stripped-text: stripped-text}, headers: {"authorization" => @auth_token })
   end
 
+  def create_submission(checkpoint_id, assignment_branch, assignment_commit_link, comment, enrollment_id)
+    response = self.class.get('/checkpoint_submission', body: { checkpoint_id: checkpoint_id, assignment_branch: assignment_branch, assignment_commit_link: assignment_commit_link, comment: comment, enrollment_id: enrollment_id }, header: { "authorization" => @auth_token })
+  end
 end
